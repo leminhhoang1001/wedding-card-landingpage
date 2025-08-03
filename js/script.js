@@ -7,7 +7,7 @@ const musicOn = '<i class="fas fa-volume-high"></i>';
 const musicOff = '<i class="fas fa-volume-xmark"></i>';
 
 let muteSound = new Howl({
-    src: ['./audio/wedding-song.mp3'],
+    src: ['./wedding-card-landingpage/audio/wedding-song.mp3'],
     // mute: false,
     // autoplay: true,
     loop: true,
