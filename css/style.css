@@ -1,0 +1,482 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Playfair:ital,opsz,wght@0,5..1200,300..900;1,5..1200,300..900&display=swap');
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    --red4: hsl(345, 100%, 23%);
+    --white: hsl(0, 0%, 100%);
+    --background: #e3f0ff;
+    --accent-1-r: 174;
+    --accent-1-g: 207;
+    --accent-1-b: 228;
+    --accent-2-r: 42;
+    --accent-2-g: 93;
+    --accent-2-b: 143;
+    --text: #333333;
+    font-size: calc(16px + (24 - 16) * (100vw - 320px) / (1280 - 320));
+}
+
+p {
+    margin: 0;
+}
+
+em {
+    font-style: italic;
+}
+
+strong {
+    font-weight: bold;
+}
+
+body {
+    perspective: 250vmin;
+    background: linear-gradient( 0deg, rgb(0 0 0 / 89%) 0%, rgb(59 59 186 / 0%) 64%), url(https://images.pexels.com/photos/1303086/pexels-photo-1303086.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1) no-repeat 50% 50% / cover;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    /* width: calc(min(1400px, 90%)); */
+    width: 100vw;
+    margin: 0 auto;
+    padding-block: 3em;
+    overflow: hidden;
+}
+
+.card {
+    /* width: 90vmin; */
+    /* height: 70vmin; */
+    /* Đảm bảo chiều rộng thiệp chiếm 80% chiều ngang màn hình */ 
+    width: 80vw; 
+    /* Sử dụng trick padding-bottom để giữ tỉ lệ 1.4 */ 
+    padding-bottom: calc(1.4 * 80vw); 
+    /* Chiều cao = 1.4 * Chiều rộng */ 
+    margin: 0 auto;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+}
+
+/* Sử dụng Media Query để xử lý màn hình ngang (landscape) */
+@media (orientation: landscape) {
+  .card {
+    /* Khi màn hình ngang, ưu tiên chiều cao của thiệp chỉ chiếm 80% chiều cao màn hình */
+    width: auto;
+    height: 95vh;
+    /* Tính toán lại chiều rộng dựa trên chiều cao để giữ tỉ lệ 1.4 */
+    width: calc(95vh / 1.4); 
+    padding-bottom: 0; /* Bỏ padding-bottom để không bị tràn */
+  }
+}
+
+.card-back {
+    transform: rotateY(-180deg);
+}
+
+.card.flipped {
+    .card-front {
+        transform: rotateY(180deg)
+    }
+    .card-back {
+        transform: rotateY(0)
+    }
+}
+
+.card-face {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 3%;
+    transition: all 3s;
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+    /* box-shadow: 0 0 30px rgba(0, 0, 0, 0.1); */
+    overflow: hidden;
+    box-shadow: 4vmin 3vmin 2vmin -1vmin #0000008c;
+}
+
+.card-front {
+    cursor: pointer;
+}
+
+.card-front .card-content {
+    height: 100%;
+    width: 100%;
+    position: relative;
+    /* right: -48%; */
+    background: var(--background) no-repeat 50% 50% / cover;
+    color: var(--white);
+    font: 1em/1.5 sans-serif;
+    /* height: 100vh; */
+    place-items: center;
+    font-size: calc(16px + (24 - 16) * (100vw - 320px) / (2560 - 320));
+}
+.card-front .card-content img,
+.card-back .card-content img{
+  width: 100%;
+  height: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index:1;
+}
+.card-front .card-content .logo-wedding-card,
+.card-back .card-content .logo-wedding-card{
+    width: 50vmin;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Căn giữa nội dung */
+    opacity: 0.3;
+    z-index: 2;
+}
+.card-front .card-content .bell-flower{
+    width: 25vmin;
+    z-index: 3;
+    transform: scaleX(-1) rotate(45deg);
+    top: 52%;
+    left: 68%;
+}
+.card-front .card-content .bell-flower:nth-of-type(2){
+    transform: scaleX(-1) rotate(-135deg);
+    top: -18%;
+    left: -2%;
+}
+.card-front .tap-hint {
+    display: block;
+    width: 7vmin;
+    height: 7vmin;
+    position: absolute;
+    top: 8vmin;
+    right: 8vmin;
+    border-radius: 50%;
+    background: rgba(var(--accent-2-r), var(--accent-2-g), var(--accent-2-b), 0.6);
+    box-shadow: 0 0 0vmin 2vmin rgba(var(--accent-1-r), var(--accent-1-g), var(--accent-1-b), 0.4);
+    animation: tap-hint 2s infinite;
+    z-index: 2;
+}
+
+.card-front .tap-hint p {
+    font: normal 1.5vmin 'Lobster', cursive;
+    transform: translate(0%, 130%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--background);
+    position: relative;
+    z-index: 5;
+}
+
+@keyframes tap-hint {
+    33% {
+        transform: scale(1.5);
+    }
+    50% {
+        box-shadow: 0 0 0.5vmin 1vmin rgba(var(--accent-1-r), var(--accent-1-g), var(--accent-1-b), 0.2);
+    }
+}
+
+.card-back {
+    box-shadow: inset 0 2.5vmin 2.5vmin rgba(0, 0, 0, 0.125), 4vmin 3vmin 2vmin -1vmin #0000008c;
+    &::after {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 0vmin;
+        bottom: 0vmin;
+        left: 0vmin;
+        right: 0vmin;
+        background: var(--background) no-repeat 50% 50% / cover;
+        border-radius: 5%;
+    }
+}
+
+.card-back .card-content {
+    height: 100%;
+    width: 100%;
+    position: relative;
+    /* right: -48%; */
+    background: var(--background) no-repeat 50% 50% / cover;
+    color: var(--text);
+    font: 1em/1.5 sans-serif;
+    /* height: 100vh; */
+    place-items: center;
+    font-size: calc(16px + (24 - 16) * (100vw - 320px) / (2560 - 320));
+}
+.card-back .card-content .card-flower-layer{
+    z-index:1;
+    height:100%;
+    width: auto;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+}
+
+.card-back .card-content .logo-wedding-card{
+    width: 39vmin;
+    top: 54%;
+    opacity: 0.1;
+}
+
+.wedding-info{
+    z-index:1;
+    height:auto;
+    width: 100%;
+    padding: 4vmin;
+    transform: translate(-50%, -50%);
+    top: 57%;
+    left: 50%;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1vmin;
+}
+
+.message-content {
+    color: var(--text);
+    font: italic 500 0.7rem 'Playfair';
+    letter-spacing: 0.1vmin;
+    word-wrap: break-word;
+    text-overflow: ellipsis;
+    min-width: 30vmin;
+    max-width: 50%; /* Giới hạn chiều rộng tối đa */
+    margin: 0 auto; /* Căn giữa phần tử */
+}
+.groom-bride{
+    display: grid;
+    grid-template-columns: 2fr max-content 2fr;
+    justify-content: center;
+    align-items: center;
+    white-space: nowrap;
+    gap: 1.5vmin;
+    max-width: 90vmin;
+    margin: 0 auto;
+}
+.groom-container, .bride-container, .ampersand-container{
+    text-align: center;
+}
+
+.groombride-text{
+    margin: 0; 
+    padding: 0;
+    color: var(--text);
+    font: normal 600 1.3rem 'Playfair Display';
+    letter-spacing: 0.1vmin;
+}
+/* Các thuộc tính chung cho chữ */
+.day, .month, .year, .time {
+    font-family: 'Fraunces', serif;
+    color: var(--text);
+}
+
+.day, .month {
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+.year{
+    font-weight: 500;
+    font-size: 0.7rem;
+}
+.time{
+    font-weight: 300;
+    font-size: 0.6rem;
+}
+/* Container chính của ngày tháng năm và giờ */
+.date-time, .date {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1vmin;
+}
+
+/* Khối ngày và tháng */
+.day-month {
+    display: grid;
+    /* Chia lưới thành 2 cột với chiều rộng bằng nhau */
+    grid-template-columns: 1fr 1fr;
+    
+    /* Khoảng cách giữa 2 cột */
+    gap: 1.5vmin;
+    
+    align-items: center;
+    justify-content: center;
+
+    /* Các đường kẻ dọc bao quanh */
+    border-left: 2px solid var(--text);
+    border-right: 2px solid var(--text);
+    padding: 0 1vmin;
+    
+    position: relative;
+}
+
+/* Pseudo-element để tạo đường kẻ giữa */
+.day-month::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background-color: var(--text);
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Khối Ngày và Tháng */
+.day, .month {
+    /* Đảm bảo chữ được căn giữa hoàn toàn trong khối */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    min-width:3rem;
+}
+
+/* ---- Cài đặt mặc định (cho Desktop) ---- */
+.card-back .card-content .wedding-address {
+    /* Đặt ở vị trí tuyệt đối phía dưới */
+    position: absolute;
+    bottom: 1vmin;
+    left: 1vmin; /* Đặt ở góc dưới bên trái */
+    transform: translateX(0); /* Loại bỏ căn giữa theo chiều ngang */
+    width: 33vmin; /* Điều chỉnh chiều rộng theo nội dung */
+    max-width: none; /* Không giới hạn chiều rộng */
+    padding: 2vmin; /* Thêm padding xung quanh */
+    z-index: 1;
+    /* Sắp xếp nội dung theo chiều ngang */
+    display: flex;
+    align-items: center; /* Căn giữa theo chiều dọc */
+    gap: 0vmin; /* Khoảng cách giữa địa chỉ và QR code */
+    
+    /* Để QR code nằm bên phải (theo HTML) */
+    /* justify-content: flex-start; */
+}
+
+.card-back .card-content .wedding-address .address {
+    /* Sắp xếp tên và địa chỉ theo chiều dọc */
+    display: flex;
+    flex-direction: column;
+    gap: 0.5vmin;
+    align-items: flex-start;
+}
+
+.card-back .card-content .wedding-address .address .brand {
+    margin: 0;
+    padding: 0;
+    font-family: 'Josefin Sans', serif;
+    font-weight: 600;
+    font-size: 0.8rem;
+    color: var(--text);
+}
+
+.card-back .card-content .wedding-address .address .address-text {
+    margin: 0;
+    padding: 0;
+    font-family: 'Playfair', serif;
+    font-weight: 400;
+    font-size: 0.4rem;
+    color: var(--text);
+    text-decoration: none;
+    text-align: start;
+}
+
+.card-back .card-content .wedding-address .QR-Code {
+    width: 10vmin; /* Điều chỉnh kích thước cho phù hợp */
+    height: 10vmin;
+    position: relative;
+}
+
+
+.groom-bride,
+.date-time, .wedding-address {
+    opacity: 0;
+    transition: opacity 2s ease-in-out;
+}
+
+/* Thêm một class để hiển thị các khối */
+.visible {
+    opacity: 1;
+}
+/* Snow fall start */
+
+.snowflake {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    top: 0;
+    left: 0;
+    background: linear-gradient(#ffffff, white);
+    /* Workaround for Chromium's selective color inversion */
+    border-radius: 50%;
+    filter: drop-shadow(0 0 9px white);
+    box-shadow: 0 0 0.7vmin 0.2vmin #ffffff;
+    z-index: 9999;
+}
+
+
+/* Snow fall end */
+
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: auto;
+    color: #ffffff98;
+    padding: 1vmin;
+}
+
+
+
+
+/* christmas message end */
+
+/* button mute */
+
+#muteaudio {
+    position: fixed;
+    top: 2vmin;
+    left: 2vmin;
+    width: 8vmin;
+    height: 8vmin;
+    font-size: 5vmin;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: none;
+    color: rgb(255, 255, 255);
+    border: none;
+    outline: none;
+    opacity: 0.4;
+    cursor: pointer;
+    transition: all 0.4s ease-out;
+    z-index: 9999;
+}
+
+#muteaudio>i {
+    animation: keyframes-fill 0.5s;
+}
+
+
+/* ------ Animation ------ */
+
+@keyframes keyframes-fill {
+    0% {
+        transform: rotate(0deg) scale(0);
+        opacity: 0;
+    }
+    50% {
+        transform: rotate(-10deg) scale(1.2);
+    }
+}
+
+
+/* button mute end */
