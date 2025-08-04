@@ -152,7 +152,7 @@ body {
     z-index: 99;
 }
 /* Thêm media query để điều chỉnh trên màn hình nhỏ nếu cần */
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 1024px) {
     .card-front .card-content .bell-flower:nth-of-type(1){
         top: 60vmin;
         left: 52vmin;
@@ -263,7 +263,7 @@ body {
 
 .message-content {
     color: var(--text);
-    font: italic 500 0.8rem 'Playfair';
+    font: italic 500 1rem 'Playfair';
     letter-spacing: 0.1vmin;
     word-wrap: break-word;
     text-overflow: ellipsis;
@@ -289,7 +289,7 @@ body {
     margin: 0; 
     padding: 0;
     color: var(--text);
-    font: normal 600 1.3rem 'Playfair Display';
+    font: normal 600 1.6rem 'Playfair Display';
     letter-spacing: 0.1vmin;
 }
 /* Các thuộc tính chung cho chữ */
@@ -299,16 +299,16 @@ body {
 }
 
 .day, .month {
-    font-size: 1.4rem;
+    font-size: 1.5rem;
     font-weight: 600;
 }
 .year{
     font-weight: 500;
-    font-size: 0.9rem;
+    font-size: 1rem;
 }
 .time{
     font-weight: 300;
-    font-size: 0.7rem;
+    font-size: 0.8rem;
 }
 /* Container chính của ngày tháng năm và giờ */
 .date-time, .date {
@@ -393,7 +393,7 @@ body {
     padding: 0;
     font-family: 'Josefin Sans', serif;
     font-weight: 600;
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     color: var(--text);
 }
 
@@ -402,7 +402,7 @@ body {
     padding: 0;
     font-family: 'Playfair', serif;
     font-weight: 400;
-    font-size: 0.4rem;
+    font-size: 0.6rem;
     color: var(--text);
     text-decoration: none;
     text-align: start;
