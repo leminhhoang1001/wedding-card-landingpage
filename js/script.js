@@ -54,6 +54,13 @@ card.addEventListener('click', function(e) {
     },2000);
 });
 
+const addressLink = document.getElementById('address-link');
+
+// Ngăn sự kiện click nổi bọt lên các phần tử cha
+addressLink.addEventListener('click', function(e) {
+    e.stopPropagation();
+});
+
 // play music once tim flip card
 card.addEventListener('click', playchristmas, { once: true });
 
