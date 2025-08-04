@@ -137,17 +137,37 @@ body {
     opacity: 0.3;
     z-index: 2;
 }
-.card-front .card-content .bell-flower{
-    width: 25vmin;
-    z-index: 3;
+.card-front .card-content .bell-flower:nth-of-type(1){
+    width: 24vmin;
+    z-index: 99;
     transform: scaleX(-1) rotate(45deg);
-    top: 52%;
-    left: 68%;
+    top: 50vmin;
+    left: 43vmin;
 }
 .card-front .card-content .bell-flower:nth-of-type(2){
+    width: 24vmin;
     transform: scaleX(-1) rotate(-135deg);
-    top: -18%;
-    left: -2%;
+    top: -15vmin;
+    left: 0vmin;
+    z-index: 99;
+}
+/* Thêm media query để điều chỉnh trên màn hình nhỏ nếu cần */
+@media screen and (max-width: 600px) {
+    .card-front .card-content .bell-flower:nth-of-type(1){
+        top: 60vmin;
+        left: 52vmin;
+        width: 30vmin;
+    }
+
+    .card-front .card-content .bell-flower:nth-of-type(2) {
+        top: -20vmin;
+        left: -2vmin;        
+        width: 30vmin;
+    }
+
+    .card-front .card-content .logo-wedding-card{
+        width: 60vmin;
+    }
 }
 .card-front .tap-hint {
     display: block;
@@ -238,12 +258,12 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 1vmin;
+    gap: 3vmin;
 }
 
 .message-content {
     color: var(--text);
-    font: italic 500 0.7rem 'Playfair';
+    font: italic 500 0.8rem 'Playfair';
     letter-spacing: 0.1vmin;
     word-wrap: break-word;
     text-overflow: ellipsis;
@@ -279,16 +299,16 @@ body {
 }
 
 .day, .month {
-    font-size: 1.3rem;
+    font-size: 1.4rem;
     font-weight: 600;
 }
 .year{
     font-weight: 500;
-    font-size: 0.7rem;
+    font-size: 0.9rem;
 }
 .time{
     font-weight: 300;
-    font-size: 0.6rem;
+    font-size: 0.7rem;
 }
 /* Container chính của ngày tháng năm và giờ */
 .date-time, .date {
@@ -394,6 +414,46 @@ body {
     position: relative;
 }
 
+/* Media query cho màn hình điện thoại (chiều rộng tối đa 600px) */
+@media screen and (max-width: 600px) {
+
+    /* Tăng kích thước chữ cho tên cô dâu chú rể để dễ đọc hơn */
+    .groombride-text {
+        font-size: 1.5rem;
+    }
+
+    /* Tăng kích thước chữ của lời mời */
+    .message-content {
+        font-size: 0.9rem;
+        max-width: 50%; /* Tăng giới hạn chiều rộng để chữ không bị tràn */
+    }
+
+    /* Tăng kích thước ngày, tháng, năm và giờ */
+    .day, .month {
+        font-size: 1.6rem;
+    }
+    
+    .year {
+        font-size: 1rem;
+    }
+
+    .time {
+        font-size: 0.7rem;
+    }
+
+    /* Tăng kích thước chữ của địa chỉ MONAMI và địa chỉ văn bản */
+    .card-back .card-content .wedding-address .address .brand {
+        font-size: 1.2rem;
+    }
+
+    .card-back .card-content .wedding-address .address .address-text {
+        font-size: 0.4rem;
+    }
+    .card-back .card-content .wedding-address .QR-Code {
+    width: 12vmin; /* Điều chỉnh kích thước cho phù hợp */
+    height: 12vmin;
+    }
+}
 
 .groom-bride,
 .date-time, .wedding-address {
