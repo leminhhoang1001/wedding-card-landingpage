@@ -31,7 +31,7 @@ strong {
 
 body {
     perspective: 250vmin;
-    background: linear-gradient( 0deg, rgb(0 0 0 / 89%) 0%, rgb(59 59 186 / 0%) 64%), url(https://images.pexels.com/photos/1303086/pexels-photo-1303086.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1) no-repeat 50% 50% / cover;
+    background: linear-gradient( 0deg, rgb(0 0 0 / 89%) 0%, rgb(59 59 186 / 0%) 64%), url('../img/wedding-background-3.jpg') no-repeat 0% 0% / cover;
     height: auto;
     display: flex;
     justify-content: center;
