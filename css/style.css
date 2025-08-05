@@ -16,6 +16,25 @@
     --text: #333333;
     font-size: calc(16px + (24 - 16) * (100vw - 320px) / (1280 - 320));
 }
+/* Điều chỉnh font-size cho màn hình lớn hơn */
+@media screen and (min-width: 601px) {
+    :root {
+        /* Giúp kích thước chữ tăng dần từ 16px đến 24px cho màn hình lớn hơn 600px */
+        font-size: calc(16px + (24 - 16) * (100vw - 601px) / (1200 - 601)); 
+    }
+}
+/* Đặt font-size cố định cho màn hình rất lớn */
+@media screen and (min-width: 1201px) {
+    :root {
+        font-size: 24px;
+    }
+}
+/* Đặt font-size cố định cho màn hình nhỏ */
+@media screen and (max-width: 600px) {
+    :root {
+        font-size: 16px;
+    }
+}
 
 p {
     margin: 0;
