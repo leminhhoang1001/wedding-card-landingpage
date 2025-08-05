@@ -14,7 +14,7 @@
     --accent-2-g: 93;
     --accent-2-b: 143;
     --text: #333333;
-    font-size: calc(16px + (24 - 16) * (100vw - 320px) / (1280 - 320));
+    font-size: 16px;
 }
 /* Điều chỉnh font-size cho màn hình lớn hơn */
 @media screen and (min-width: 601px) {
