@@ -14,25 +14,25 @@
     --accent-2-g: 93;
     --accent-2-b: 143;
     --text: #333333;
-    font-size: 16px;
+    font-size: 18px;
 }
 /* Điều chỉnh font-size cho màn hình lớn hơn */
 @media screen and (min-width: 601px) {
     :root {
         /* Giúp kích thước chữ tăng dần từ 16px đến 24px cho màn hình lớn hơn 600px */
-        font-size: calc(16px + (24 - 16) * (100vw - 601px) / (1200 - 601)); 
+        font-size: 24px; 
     }
 }
 /* Đặt font-size cố định cho màn hình rất lớn */
 @media screen and (min-width: 1201px) {
     :root {
-        font-size: 24px;
+        font-size: 25px;
     }
 }
 /* Đặt font-size cố định cho màn hình nhỏ */
 @media screen and (max-width: 600px) {
     :root {
-        font-size: 16px;
+        font-size: 18px;
     }
 }
 
@@ -444,7 +444,7 @@ body {
     /* Tăng kích thước chữ của lời mời */
     .message-content {
         /* font-size: 0.9rem; */
-        max-width: 60%; /* Tăng giới hạn chiều rộng để chữ không bị tràn */
+        max-width: 45%; /* Tăng giới hạn chiều rộng để chữ không bị tràn */
     }
 
     /* Tăng kích thước ngày, tháng, năm và giờ
@@ -503,7 +503,7 @@ body {
     } */
 
     .card-back .card-content .wedding-address {
-        width: 40vmin;
+        width: 34vmin;
     }
     /* Tăng kích thước chữ của địa chỉ MONAMI và địa chỉ văn bản */
     /* .card-back .card-content .wedding-address .address .brand {
