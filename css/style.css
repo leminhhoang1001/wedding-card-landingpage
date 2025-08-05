@@ -14,18 +14,18 @@
     --accent-2-g: 93;
     --accent-2-b: 143;
     --text: #333333;
-    font-size: 18px;
+    font-size: 16px;
 }
 /* Thiết lập font-size cho màn hình tablet */
 @media screen and (min-width: 601px) and (max-width: 1024px) {
     :root {
-        font-size: 25px;
+        font-size: 27px;
     }
 }
 /* Thiết lập font-size cho màn hình desktop */
 @media screen and (width: 1200px) {
     :root {
-        font-size: 5vw;
+        font-size: 9vw;
     }
 }
 /* Thiết lập font-size cho màn hình desktop */
