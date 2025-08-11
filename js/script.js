@@ -45,13 +45,13 @@ card.addEventListener('click', function(e) {
                         setTimeout(()=> {
                             var dateTimeBlock = document.querySelector('.wedding-address');
                             dateTimeBlock.classList.add('visible');
-                        }, 4000); // Đợi 4 giây sau khi tên hiện lên
+                        }, 2000); // Đợi 2 giây sau khi tên hiện lên
 
-                    }, 4000); // Đợi 4 giây sau khi tên hiện lên
-                },2000);
+                    }, 2000); // Đợi 2 giây sau khi tên hiện lên
+                },1000);
             }
         });
-    },2000);
+    },1000);
 });
 
 const addressLink = document.getElementById('address-link');

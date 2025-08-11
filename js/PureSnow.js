@@ -25,7 +25,7 @@ function spawn_snow(snow_density = 200) {
     // Kiểm tra kích thước màn hình
     if (window.innerWidth <= 768) {
         // Nếu là màn hình di động/máy tính bảng, giảm số lượng bông tuyết
-        final_density = 100; // Bạn có thể thay đổi số này tùy ý
+        final_density = 50; // Bạn có thể thay đổi số này tùy ý
     }
 
     final_density -= 1;
@@ -67,7 +67,7 @@ function spawnSnowCSS(snow_density = 200){
     // Kiểm tra kích thước màn hình
     if (window.innerWidth <= 768) {
         // Nếu là màn hình di động/máy tính bảng, giảm số lượng bông tuyết
-        final_density = 100; // Bạn có thể thay đổi số này tùy ý
+        final_density = 50; // Bạn có thể thay đổi số này tùy ý
     }
 
     let snowflake_name = "snowflake";
