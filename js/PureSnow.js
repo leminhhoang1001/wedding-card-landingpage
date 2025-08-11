@@ -20,9 +20,17 @@ function toggle_snow() {
 
 // Creating snowflakes
 function spawn_snow(snow_density = 200) {
-    snow_density -= 1;
+    let final_density = snow_density;
 
-    for (let x = 0; x < snow_density; x++) {
+    // Kiểm tra kích thước màn hình
+    if (window.innerWidth <= 768) {
+        // Nếu là màn hình di động/máy tính bảng, giảm số lượng bông tuyết
+        final_density = 100; // Bạn có thể thay đổi số này tùy ý
+    }
+
+    final_density -= 1;
+
+    for (let x = 0; x < final_density; x++) {
         let board = document.createElement('div');
         board.className = "snowflake";
 
@@ -54,13 +62,21 @@ function random_range(min, max) {
 
 // Create style for snowflake
 function spawnSnowCSS(snow_density = 200){
+    let final_density = snow_density;
+
+    // Kiểm tra kích thước màn hình
+    if (window.innerWidth <= 768) {
+        // Nếu là màn hình di động/máy tính bảng, giảm số lượng bông tuyết
+        final_density = 100; // Bạn có thể thay đổi số này tùy ý
+    }
+
     let snowflake_name = "snowflake";
     let rule = ``;
     if (typeof base_css !== 'undefined'){
         rule = base_css;
     }
     
-    for(let i = 1; i < snow_density; i++){
+    for(let i = 1; i < final_density; i++){
         let random_x = Math.random() * 100; // vw
         let random_offset = random_range(-100000, 100000) * 0.0002; // vw;
         let random_x_end = random_x + random_offset;
