@@ -48,10 +48,10 @@ card.addEventListener('click', function(e) {
                         }, 2000); // Đợi 2 giây sau khi tên hiện lên
 
                     }, 2000); // Đợi 2 giây sau khi tên hiện lên
-                },1000);
+                },2000);
             }
         });
-    },1000);
+    },2000);
 });
 
 const addressLink = document.getElementById('address-link');
