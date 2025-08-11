@@ -530,6 +530,13 @@ body {
 }
 /* Snow fall start */
 
+/* Tạo một animation cơ bản cho tất cả bông tuyết */
+@keyframes fall {
+  100% {
+    transform: translate(var(--x-end), 100vh) scale(var(--scale));
+  }
+}
+
 .snowflake {
     position: absolute;
     width: 10px;
@@ -537,16 +544,25 @@ body {
     top: 0;
     left: 0;
     background: linear-gradient(#ffffff, white);
-    /* Workaround for Chromium's selective color inversion */
     border-radius: 50%;
     filter: drop-shadow(0 0 9px white);
     box-shadow: 0 0 0.7vmin 0.2vmin #ffffff;
     z-index: 9999;
+    will-change: transform, opacity; /* Thêm dòng này để tối ưu */
+
+    /* Gán animation chung */
+    animation-name: fall;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+
+    /* Sử dụng các biến CSS để tùy chỉnh animation cho từng bông tuyết */
+    animation-duration: var(--duration);
+    animation-delay: var(--delay);
+    transform: translate(var(--x-start), -10px) scale(var(--scale));
+    opacity: var(--opacity);
 }
 
-
 /* Snow fall end */
-
 .footer {
     position: fixed;
     left: 0;
